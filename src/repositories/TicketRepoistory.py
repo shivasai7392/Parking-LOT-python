@@ -8,6 +8,7 @@ class TicketRepository(ITicketRepository):
 
     def __init__(self):
         self.tickets: Dict[int, Ticket] = dict()
+        self.tickets_with_vehicle_id: Dict[int, Ticket] = dict()
         self.generated_id = 0
 
     def save(self, ticket: Ticket) -> Ticket:
@@ -15,3 +16,7 @@ class TicketRepository(ITicketRepository):
         ticket.id = self.generated_id
         self.tickets[ticket.id] = ticket
         return ticket
+
+    def getTicketByVehicleId(self, vehicle_id: int) -> Ticket:
+        if vehicle_id in self.tickets_with_vehicle_id:
+            return self.tickets_with_vehicle_id[vehicle_id]

@@ -7,3 +7,7 @@ class ITicketRepository(abc.ABC):
     @abc.abstractmethod
     def save(self, ticket: Ticket) -> Ticket:
         pass
+
+    @abc.abstractmethod
+    def getTicketByVehicleId(self, vehicle_id: int) -> Ticket:
+        pass

@@ -4,6 +4,7 @@ from src.exceptions.InvalidArgumentException import InvalidArgumentException
 from src.models.Gate import Gate
 from src.models.ParkingLot import ParkingLot
 from src.models.ParkingSpot import ParkingSpot
+from src.models.SpotStatus import SpotStatus
 from src.models.Ticket import Ticket
 from src.models.Vehicle import Vehicle
 from src.models.VehicleType import VehicleType
@@ -52,6 +53,7 @@ class TicketService:
         ticket.gate = gate
         ticket.entry_time = datetime.datetime.now()
         ticket.operator = gate.operator
+        parking_spot.spot_status = SpotStatus.FILLED
         ticket.parking_spot = parking_spot
 
         ticket: Ticket = self.ticket_repository.save(ticket)

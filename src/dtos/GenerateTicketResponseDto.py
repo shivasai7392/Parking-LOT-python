@@ -4,6 +4,7 @@ class GenerateTicketResponseDto:
         self._entry_time = None
         self._spot_number = None
         self._floor_number = None
+        self._status = None
 
     @property
     def ticket_id(self):
@@ -36,3 +37,13 @@ class GenerateTicketResponseDto:
     @floor_number.setter
     def floor_number(self, value):
         self._floor_number = value
+
+    @property
+    def status(self):
+        return self._status
+
+    @status.setter
+    def status(self, value):
+        self._status = value
+
+
