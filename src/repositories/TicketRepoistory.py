@@ -17,6 +17,6 @@ class TicketRepository(ITicketRepository):
         self.tickets[ticket.id] = ticket
         return ticket
 
-    def getTicketByVehicleId(self, vehicle_id: int) -> Ticket:
+    def getByVehicleId(self, vehicle_id: int) -> Ticket:
         if vehicle_id in self.tickets_with_vehicle_id:
             return self.tickets_with_vehicle_id[vehicle_id]

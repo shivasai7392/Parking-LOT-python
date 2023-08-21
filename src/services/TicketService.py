@@ -29,18 +29,18 @@ class TicketService:
         self.ticket_repository = ticket_repository
 
     def generateTicket(self, vehicle_registration_number: str, gate_id: int, vehicle_type: VehicleType) -> Ticket:
-        vehicle: Vehicle = self.vehicle_repository.vehicles_by_number(vehicle_registration_number)
+        vehicle: Vehicle = self.vehicle_repository.getByVehicleNumber(vehicle_registration_number)
         if vehicle is None:
             vehicle = Vehicle()
             vehicle.vehicle_type = vehicle_type
             vehicle.registration_number = vehicle_registration_number
             vehicle = self.vehicle_repository.save(vehicle)
 
-        gate: Gate = self.gate_repository.getGateById(gate_id)
+        gate: Gate = self.gate_repository.getById(gate_id)
         if gate is None:
             raise InvalidArgumentException("No gate with id {} is available".format(str(gate_id)))
 
-        parking_lot: ParkingLot = self.parking_lot_repository.getParkingLotByGateId(gate_id)
+        parking_lot: ParkingLot = self.parking_lot_repository.getByGateId(gate_id)
         if parking_lot is None:
             raise InvalidArgumentException("No parking lot is available")
 

@@ -25,11 +25,11 @@ class BillService:
         self.bill_repository = bill_repository
 
     def generateBill(self, vehicle_id: int, gate_id: int):
-        ticket: Ticket = self.ticket_repository.getTicketByVehicleId(vehicle_id)
+        ticket: Ticket = self.ticket_repository.getByVehicleId(vehicle_id)
         if ticket is None:
             raise InvalidArgumentException()
 
-        gate: Gate = self.gate_repository.getGateById(gate_id)
+        gate: Gate = self.gate_repository.getById(gate_id)
         if gate is None:
             raise InvalidArgumentException()
 

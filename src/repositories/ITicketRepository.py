@@ -9,5 +9,5 @@ class ITicketRepository(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def getTicketByVehicleId(self, vehicle_id: int) -> Ticket:
+    def getByVehicleId(self, vehicle_id: int) -> Ticket:
         pass

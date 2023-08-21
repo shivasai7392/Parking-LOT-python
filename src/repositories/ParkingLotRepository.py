@@ -10,5 +10,5 @@ class ParkingLotRepository(IParkingLotRepository):
         self.parking_lots: Dict[int, ParkingLot] = dict()
         self.parking_lots_with_gateId: Dict[int, ParkingLot] = dict()
 
-    def getParkingLotByGateId(self, gateId: int):
+    def getByGateId(self, gateId: int):
         return self.parking_lots_with_gateId[gateId] if gateId in self.parking_lots_with_gateId else None

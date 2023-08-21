@@ -7,7 +7,7 @@ from src.repositories.IGateRepository import IGateRepository
 class GateRepository(IGateRepository):
 
     def __init__(self):
-        self.gates: Dict[int, Gate] = dict()
+        self.gates: Dict[int, Gate] = {4: Gate()}
 
-    def getGateById(self, gateId: int):
+    def getById(self, gateId: int):
         return self.gates[gateId] if gateId in self.gates else None

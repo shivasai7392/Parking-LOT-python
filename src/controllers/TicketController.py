@@ -16,7 +16,7 @@ class TicketController:
 
         try:
             generated_ticket: Ticket = self.ticket_service.generateTicket(request.vehicle_registration_number,
-                                                                          request.gate_id)
+                                                                          request.gate_id, request.vehicle_type)
         except InvalidArgumentException:
             print("Fail")
             response.status = ResponseStatus.FAILURE
